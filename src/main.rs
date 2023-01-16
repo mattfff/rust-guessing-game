@@ -7,9 +7,9 @@ fn main() {
 
     let secret_number = rand::thread_rng().gen_range(0..=100);
 
-    println!("Please input your guess.");
-
     loop {
+        println!("Please input your guess, or q to quit.");
+
         let mut guess = String::new();
 
         io::stdin().
@@ -19,7 +19,7 @@ fn main() {
         let guess: u32 = match guess.trim().parse() {
             Ok (num) => num,
             Err(_) => {
-                if guess.trim().eq("quit") {
+                if guess.trim().eq("q") {
                     println!("Quitting.");
                     break;
                 }
